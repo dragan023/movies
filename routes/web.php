@@ -16,4 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/movies', 'MovieController@index');
+Route::get('/create', 'MovieController@create');
 Route::get('/movie/{id}', 'MovieController@show');

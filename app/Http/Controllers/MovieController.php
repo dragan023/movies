@@ -18,4 +18,8 @@ class MovieController extends Controller
         $singleMovie = Movie::findOrFail($id);
         return view('layouts/movie', compact('singleMovie'));
     }
+
+    public function create() {
+        return view('layouts/create');
+    }
 }
