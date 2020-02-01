@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+{{ $singleMovie->title }}
+@endsection
+
 @section('content')
     <div>
         <h1>{{ $singleMovie->title }}</h1>

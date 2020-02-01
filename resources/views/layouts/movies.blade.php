@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Movies
+@endsection
+
 @section('content')
     @foreach ($movies as $movie)
     <div>
