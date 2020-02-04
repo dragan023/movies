@@ -14,3 +14,13 @@
         <span>{{ $singleMovie->storyline }}</span>
     </div>
 @endsection
+
+@section('comments')
+    <div>
+        <h1>Comments</h1>
+
+        @foreach($singleMovie->comments as $comment)
+            <span>{{$comment->content}}</span>
+        @endforeach
+    </div>
+@endsection

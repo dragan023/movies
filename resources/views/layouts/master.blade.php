@@ -29,5 +29,9 @@
     <div class="container-fluid">
         @yield('content')
     </div>
+
+    <div class="container">
+        @yield('comments')
+    </div>
 </body>
 </html>

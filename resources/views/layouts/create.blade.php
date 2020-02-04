@@ -36,8 +36,8 @@
             <input type="text" class="form-control" id="director" name="director">
         </div>
         <div class="form-group w-25">
-            <label for="date">Year</label>
-            <input type="number" class="form-control" id="date" name="date">
+            <label for="relase_date">Year</label>
+            <input type="number" class="form-control" id="relase_date" name="relase_date">
         </div>
 
         <div class="form-group">

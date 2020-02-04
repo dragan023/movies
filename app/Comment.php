@@ -4,12 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Movie extends Model
+class Comment extends Model
 {
     //
+
     protected $guarded = ['id'];
 
-    public function comments() {
-        return $this->hasMany(Comment::class);
+    public function movie() {
+        return $this->belongsTo(Movie::class);
     }
 }

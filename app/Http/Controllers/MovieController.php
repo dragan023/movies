@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\MovieRequest;
 use App\Movie;
 
 class MovieController extends Controller
@@ -15,7 +16,7 @@ class MovieController extends Controller
     }
 
     public function show($id) {
-        $singleMovie = Movie::findOrFail($id);
+        $singleMovie = Movie::with('comments')->findOrFail($id);
         return view('layouts/movie', compact('singleMovie'));
     }
 
@@ -23,21 +24,8 @@ class MovieController extends Controller
         return view('layouts/create');
     }
 
-    public function store(Request $request) {
-        $validatedData = $request->validate([
-            'title' => 'required',
-            'genre' => 'required',
-            'storyline' => 'required|max:1000',
-            'director' => 'required',
-            'date' => 'required|integer|between:1900,2020',
-        ]);
-
-        $submitedMovie = new Movie;
-        $submitedMovie->title = $request->title;
-        $submitedMovie->genre = $request->genre;
-        $submitedMovie->storyline = $request->storyline;
-        $submitedMovie->director = $request->director;
-        $submitedMovie->relase_date = $request->date;
-        $submitedMovie->save();
+    public function store(MovieRequest $request) {
+        $movie = Movie::create(request()->all());
+        return redirect('/movies');
     }
 }
